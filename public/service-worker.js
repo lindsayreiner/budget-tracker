@@ -1,14 +1,11 @@
 const FILES_TO_CACHE = [
     '/',
     '/index.html',
-    '/public/assets/css/style.css',
-    '/public/assets/images/icons/icon-192x192.png',
-    '/public/assets/images/icons/icon-512x512.png',
-    '/manifest.webmanifest',
-    //what was this from mini project?
-    // '/dist/app.bundle.js',
-    // '/dist/favorites.bundle.js',
-    // '/dist/topic.bundle.js',
+    '/assets/css/style.css',
+    '/assets/js/index.js',
+    '/assets/images/icons/icon-192x192.png',
+    '/assets/images/icons/icon-512x512.png',
+    '/manifest.json'
 ];
 
 const PRECACHE = 'precache-v1';
@@ -19,9 +16,8 @@ self.addEventListener('install', (event) => {
         caches
             .open(PRECACHE)
             .then((cache) => cache.addAll(FILES_TO_CACHE))
-            .then(self.skipWaiting())
+        // .then(self.skipWaiting())
     );
-    console.log("Your files were pre-cached successfully!");
 });
 
 // The activate handler takes care of cleaning up old caches.
